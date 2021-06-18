@@ -71,7 +71,7 @@ function scrabbleScore(word){
  
 	  for (const pointValue in newPointStructure) {
  		 if (pointValue === word.charAt(i)) {
-			letterPoints += Number(newPointStructure[pointValue]);
+			letterPoints += newPointStructure[pointValue];
      }
  	  }
 	}
@@ -106,13 +106,15 @@ function scorerPrompt(word) {
   selectedScorer = input.question("Enter 0, 1, or 2: ");
 
   console.log(`Score for ${word}: ${scoringAlgorithms[selectedScorer].scorerFunction(word)}`);
+
+  return selectedScorer;
 }
 
 function transform(object) {
   let newPointObject = {};
   for (item in object){
     for (i = 0; i<object[item].length; i++){
-      newPointObject[object[item][i]] = item;
+      newPointObject[object[item][i]] = Number(item);
     }
   }
 return newPointObject
