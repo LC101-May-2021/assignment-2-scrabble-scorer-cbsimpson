@@ -39,7 +39,7 @@ function initialPrompt() {
 }
 
 
-function simpleScorer(word){
+function simpleScore(word){
   let letterPoints = 0;
   for (let i = 0; i < word.length; i++ ){
     if (word.charAt(i) != " "){
@@ -50,7 +50,7 @@ function simpleScorer(word){
 }
 
 
-function vowelBonusScorer(word){
+function vowelBonusScore(word){
   let letterPoints = 0;
   const vowels = ["A", "E", "I", "O", "U"];
   for (let i = 0; i<word.length; i++) {
@@ -62,9 +62,6 @@ function vowelBonusScorer(word){
   }
   return letterPoints;
 }
-
-let simpleScore;
-let vowelBonusScore;
 
 function scrabbleScore(word){
 	word = word.toUpperCase();
@@ -86,12 +83,12 @@ const scoringAlgorithms = [
   {
     name: "Simple Score", 
     description: "Each letter is worth 1 point.", 
-    scorerFunction: simpleScorer
+    scorerFunction: simpleScore
   }, 
   {
     name: "Bonus Vowels", 
     description: "Vowels are 3 pts, consonants are 1 pt.", 
-    scorerFunction: vowelBonusScorer
+    scorerFunction: vowelBonusScore
   }, 
   {
     name: "Scrabble", 
