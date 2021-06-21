@@ -3,19 +3,19 @@
 const input = require("readline-sync");
 
 const oldPointStructure = {
-  1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'],
-  2: ['D', 'G'],
-  3: ['B', 'C', 'M', 'P'],
-  4: ['F', 'H', 'V', 'W', 'Y'],
-  5: ['K'],
-  8: ['J', 'X'],
-  10: ['Q', 'Z']
+  1: ['a', 'e', 'i', 'o', 'u', 'l', 'n', 'r', 's', 't'],
+  2: ['d', 'g'],
+  3: ['b', 'c', 'm', 'p'],
+  4: ['f', 'h', 'v', 'w', 'y'],
+  5: ['k'],
+  8: ['j', 'x'],
+  10: ['q', 'z']
 };
 
 let enteredWord = " ";
 
 function oldScrabbleScorer(word) {
-	word = word.toUpperCase();
+	word = word.toLowerCase();
 	let letterPoints = "";
  
 	for (let i = 0; i < word.length; i++) {
@@ -64,7 +64,7 @@ function vowelBonusScore(word){
 }
 
 function scrabbleScore(word){
-	word = word.toUpperCase();
+	word = word.toLowerCase();
 	let letterPoints = 0;
  
 	for (let i = 0; i < word.length; i++) {
@@ -125,7 +125,7 @@ let newPointStructure = transform(oldPointStructure);
 function runProgram() {
   initialPrompt();
   scorerPrompt(enteredWord);
-  
+  console.log(newPointStructure);
 }
 
 // Don't write any code below this line //
